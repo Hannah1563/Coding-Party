@@ -1,7 +1,11 @@
 import './TeamDashboard.css';
 import MemberCard from './MemberCard';
+import { useState } from 'react';
 
 function TeamDashboard() {
+  // Author: Ange Umutoni - Task 31: typed numeric state for team score
+  const [teamScore, setTeamScore] = useState<number>(0);
+  
   return (
     <div className="dashboard">
       <h1>Team Dashboard</h1>
@@ -55,5 +59,6 @@ function TeamDashboard() {
     </div>
   );
 }
+
 
 export default TeamDashboard;
