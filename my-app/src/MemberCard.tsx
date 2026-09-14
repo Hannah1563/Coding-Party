@@ -4,18 +4,23 @@
 
 import './MemberCard.css';
 
+// Author: Joshua Mugisha; task 45 -- typed callback prop member removal.
 interface MemberCardProps {
+  id: string;
   name: string;
   role: string;
   tasksCompleted: number;
   isActive: boolean;
+  onRemove: (id: string) => void; 
 }
 
 function MemberCard({
+  id,
   name,
   role,
   tasksCompleted,
   isActive,
+  onRemove
 }: MemberCardProps) {
   const statusClass = isActive ? 'active' : 'inactive';
 
@@ -33,6 +38,8 @@ function MemberCard({
       >
         {isActive ? 'Active' : 'Inactive'}
       </p>
+      {/* Author: Joshua Mugisha; task 46 -- remove button wired to onRemove callback. */}
+      <button onClick={() => onRemove(id)}>Remove</button>
     </div>
   );
 }
