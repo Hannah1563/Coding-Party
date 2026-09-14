@@ -5,6 +5,9 @@ import { useState } from 'react';
 function TeamDashboard() {
   // Author: Ange Umutoni - Task 31: typed numeric state for team score
   const [teamScore, setTeamScore] = useState<number>(0);
+  
+  // Author: Ange Umutoni - Task 36: typed string state for new member name
+  const [newMemberName, setNewMemberName] = useState<string>('');
 
   return (
     <div className="dashboard">
@@ -61,6 +64,7 @@ function TeamDashboard() {
       </div>
     </div>
   );
+  
 }
 
 
