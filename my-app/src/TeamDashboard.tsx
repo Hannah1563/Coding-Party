@@ -1,6 +1,18 @@
 import './TeamDashboard.css';
 import MemberCard from './MemberCard';
 import { useState } from 'react';
+import type { Member } from './types';
+
+
+// Author: Joshua Mugisha — Task 42: typed seed data for the array state
+const initialMembers: Member[] = [
+  { id: '1', name: 'Ivan Mucyo', role: 'Developer', tasksCompleted: 5, isActive: true },
+  { id: '2', name: 'Hannah Ishimwe TUYISHIMIRE', role: 'Developer', tasksCompleted: 4, isActive: true },
+  { id: '3', name: 'Thierry Maridadi', role: 'Developer', tasksCompleted: 3, isActive: true },
+  { id: '4', name: 'Joshua Mugisha', role: 'Developer', tasksCompleted: 3, isActive: true },
+  { id: '5', name: 'Ange Umutoni', role: 'Developer', tasksCompleted: 2, isActive: true },
+  { id: '6', name: 'Isaro Julie', role: 'Developer', tasksCompleted: 1, isActive: true },
+];
 
 function TeamDashboard() {
   // Author: Ange Umutoni - Task 31: typed numeric state for team score
