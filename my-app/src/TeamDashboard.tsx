@@ -1,4 +1,5 @@
-// Author: Hannah Tuyishimire
+// Author: Hannah Ishimwe TUYISHIMIRE
+
 import MemberCard from './MemberCard'
 
 function TeamDashboard() {
@@ -17,7 +18,7 @@ function TeamDashboard() {
       />
 
       <MemberCard
-        name="Hannah Tuyishimire"
+        name="Hannah Ishimwe TUYISHIMIRE"
         role="Developer"
         tasksCompleted={4}
         isActive={true}
