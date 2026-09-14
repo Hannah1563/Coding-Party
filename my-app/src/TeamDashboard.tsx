@@ -8,9 +8,23 @@ function TeamDashboard() {
       <p>Welcome to our group project management application.</p>
 
       {/* Author: Ivan Mucyo - Task 13 */}
-      <MemberCard name="Ivan Mucyo" role="Developer" />
-      <MemberCard name="Jean Baptiste Tuyishimire" role="Developer" />
-      <MemberCard name="Thiery Maridadi" role="Designer" />
+      <MemberCard
+        name="Ivan Mucyo"
+        role="Developer"
+        tasksCompleted={5}
+      />
+
+      <MemberCard
+        name="Jean Baptiste Tuyishimire"
+        role="Developer"
+        tasksCompleted={4}
+      />
+
+      <MemberCard
+        name="Team Member"
+        role="Designer"
+        tasksCompleted={3}
+      />
     </>
   )
 }
