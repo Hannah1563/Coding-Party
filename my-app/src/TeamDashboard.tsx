@@ -42,6 +42,10 @@ const handleAddMember = (e: React.FormEvent<HTMLFormElement>) => {
   setNewMemberName('');
 };
   
+// Author: Joshua Mugisha; task 45 -- Remove member from array state.
+const handleRemoveMember = (id: string) => {
+  setMembers((prev) => prev.filter((member) => member.id !== id));
+}
 // Author: Joshua Mugisha; task 42 -- Array State, typed.
 const [members, setMembers] = useState<Member[]>(initialMembers);
 
