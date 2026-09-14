@@ -5,11 +5,13 @@ import { useState } from 'react';
 function TeamDashboard() {
   // Author: Ange Umutoni - Task 31: typed numeric state for team score
   const [teamScore, setTeamScore] = useState<number>(0);
-  
+
   return (
     <div className="dashboard">
       <h1>Team Dashboard</h1>
       <p>Welcome to our group project management application.</p>
+      <p>Team Score: {teamScore}</p>
+      <button onClick={() => setTeamScore(teamScore + 1)}>+1</button>
 
       {/* Author: Ivan Mucyo - Tasks 9–17 */}
 
