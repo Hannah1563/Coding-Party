@@ -1,4 +1,4 @@
-// Author: Jean Baptiste Tuyishimire
+// Author: Hannah Tuyishimire
 import MemberCard from './MemberCard'
 
 function TeamDashboard() {
@@ -7,7 +7,8 @@ function TeamDashboard() {
       <h1>Team Dashboard</h1>
       <p>Welcome to our group project management application.</p>
 
-      {/* Author: Ivan Mucyo - Tasks 9 and 13 */}
+      {/* Author: Ivan Mucyo - Tasks 9–17 */}
+
       <MemberCard
         name="Ivan Mucyo"
         role="Developer"
@@ -16,17 +17,38 @@ function TeamDashboard() {
       />
 
       <MemberCard
-        name="Jean Baptiste Tuyishimire"
+        name="Hannah Tuyishimire"
         role="Developer"
         tasksCompleted={4}
         isActive={true}
       />
 
       <MemberCard
-        name="Team Member"
-        role="Designer"
+        name="Thiery Maridadi"
+        role="Developer"
         tasksCompleted={3}
-        isActive={false}
+        isActive={true}
+      />
+
+      <MemberCard
+        name="Joshua Mugisha"
+        role="Developer"
+        tasksCompleted={3}
+        isActive={true}
+      />
+
+      <MemberCard
+        name="Angel Umutoni"
+        role="Developer"
+        tasksCompleted={2}
+        isActive={true}
+      />
+
+      <MemberCard
+        name="Isaro Julie"
+        role="Developer"
+        tasksCompleted={2}
+        isActive={true}
       />
     </>
   )
