@@ -12,6 +12,7 @@ function TeamDashboard() {
       <p>Welcome to our group project management application.</p>
       <p>Team Score: {teamScore}</p>
       <button onClick={() => setTeamScore((prev) => prev + 1)}>+1</button>
+      <button onClick={() => setTeamScore((prev) => (prev > 0 ? prev - 1 : 0))}>-1</button>
 
       {/* Author: Ivan Mucyo - Tasks 9–17 */}
 
