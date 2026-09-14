@@ -12,6 +12,7 @@ interface MemberCardProps {
   tasksCompleted: number;
   isActive: boolean;
   onRemove: (id: string) => void; 
+  onToggleStatus: (id: string) => void;
 }
 
 function MemberCard({
@@ -20,7 +21,8 @@ function MemberCard({
   role,
   tasksCompleted,
   isActive,
-  onRemove
+  onRemove,
+  onToggleStatus
 }: MemberCardProps) {
   const statusClass = isActive ? 'active' : 'inactive';
 
@@ -39,6 +41,9 @@ function MemberCard({
         {isActive ? 'Active' : 'Inactive'}
       </p>
       {/* Author: Joshua Mugisha; task 46 -- remove button wired to onRemove callback. */}
+      <button onClick={() => onToggleStatus(id)}>
+        Set {isActive ? 'Inactive' : 'Active'}
+      </button>
       <button onClick={() => onRemove(id)}>Remove</button>
     </div>
   );

@@ -20,6 +20,8 @@ function TeamDashboard() {
   
   // Author: Ange Umutoni - Task 36: typed string state for new member name
   const [newMemberName, setNewMemberName] = useState<string>('');
+  const [memberFilter, setMemberFilter] = useState<'all' | 'active' | 'inactive'>('all');
+  const [searchTerm, setSearchTerm] = useState<string>('');
 
 // Author: Ange Umutoni - Task 38: typed onChange handler for member name input
 const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -46,8 +48,26 @@ const handleAddMember = (e: React.FormEvent<HTMLFormElement>) => {
 const handleRemoveMember = (id: string) => {
   setMembers((prev) => prev.filter((member) => member.id !== id));
 }
+
+const handleToggleMemberStatus = (id: string) => {
+  setMembers((prev) =>
+    prev.map((member) =>
+      member.id === id ? { ...member, isActive: !member.isActive } : member
+    )
+  );
+};
 // Author: Joshua Mugisha; task 42 -- Array State, typed.
 const [members, setMembers] = useState<Member[]>(initialMembers);
+
+const visibleMembers = members.filter((member) => {
+  const matchesFilter =
+    memberFilter === 'all' ||
+    (memberFilter === 'active' && member.isActive) ||
+    (memberFilter === 'inactive' && !member.isActive);
+  const matchesSearch = member.name.toLowerCase().includes(searchTerm.toLowerCase());
+
+  return matchesFilter && matchesSearch;
+});
 
   return (
     <div className="dashboard">
@@ -68,6 +88,31 @@ const [members, setMembers] = useState<Member[]>(initialMembers);
       <button type="submit">Add Member</button>
     </form>
 
+    <div className="member-controls">
+      <label>
+        Search members
+        <input
+          type="search"
+          placeholder="Search by name"
+          value={searchTerm}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
+        />
+      </label>
+      <label>
+        Show
+        <select
+          value={memberFilter}
+          onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+            setMemberFilter(e.target.value as 'all' | 'active' | 'inactive')
+          }
+        >
+          <option value="all">All</option>
+          <option value="active">Active</option>
+          <option value="inactive">Inactive</option>
+        </select>
+      </label>
+    </div>
+
 {/* Ivan Mucyo's original tasks 9–17 work
     is preserved in git history — see commit 180a3ea.
     Author: Joshua Mugisha - Task 44: render members from array state */}
@@ -75,7 +120,7 @@ const [members, setMembers] = useState<Member[]>(initialMembers);
       <div className="member-list">
 
 {/* Author: Joshua Mugisha; task 46 -- remove member from the array using pass id + onRemove. */}
-        {members.map((member) => (
+        {visibleMembers.map((member) => (
           <MemberCard
             key={member.id}
             id={member.id}
@@ -84,6 +129,7 @@ const [members, setMembers] = useState<Member[]>(initialMembers);
             tasksCompleted={member.tasksCompleted}
             isActive={member.isActive}
             onRemove={handleRemoveMember}
+            onToggleStatus={handleToggleMemberStatus}
           />
         ))}
       </div>
