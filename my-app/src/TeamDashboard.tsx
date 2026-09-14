@@ -74,7 +74,7 @@ const [members, setMembers] = useState<Member[]>(initialMembers);
 
       <div className="member-list">
 
-{/* Author: Joshua Mugisha; task 46 -- render from array state, pass id + onRemove. */}
+{/* Author: Joshua Mugisha; task 46 -- remove member from the array using pass id + onRemove. */}
         {members.map((member) => (
           <MemberCard
             key={member.id}
@@ -91,7 +91,6 @@ const [members, setMembers] = useState<Member[]>(initialMembers);
   );
   
 }
-
 
 
 export default TeamDashboard;
