@@ -2,12 +2,13 @@
 // Tasks 10–17: Reusable MemberCard component with typed props,
 // numeric and boolean props, conditional rendering, and optional bio.
 
+import './MemberCard.css';
+
 interface MemberCardProps {
-  name: string
-  role: string
-  tasksCompleted: number
-  isActive: boolean
-  bio?: string
+  name: string;
+  role: string;
+  tasksCompleted: number;
+  isActive: boolean;
 }
 
 function MemberCard({
@@ -16,14 +17,24 @@ function MemberCard({
   tasksCompleted,
   isActive,
 }: MemberCardProps) {
+  const statusClass = isActive ? 'active' : 'inactive';
+
   return (
-    <div>
-      <h2>{name}</h2>
-      <p>Role: {role}</p>
-      <p>Tasks Completed: {tasksCompleted}</p>
-      <p>Status: {isActive ? 'Active' : 'Inactive'}</p>
+    <div className={`member-card card-spacing ${statusClass}`}>
+      <h2 className="member-name">{name}</h2>
+
+      <p className="member-role">{role}</p>
+
+      <p>Tasks completed: {tasksCompleted}</p>
+
+      <p
+        className="member-status"
+        style={{ fontWeight: 'bold' }}
+      >
+        {isActive ? 'Active' : 'Inactive'}
+      </p>
     </div>
-  )
+  );
 }
 
-export default MemberCard
+export default MemberCard;

@@ -1,0 +1,40 @@
+.dashboard {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard h1 {
+  margin-bottom: 10px;
+}
+
+.dashboard > p {
+  margin-bottom: 20px;
+}
+
+.member-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Make each card responsive */
+.member-list .member-card {
+  flex: 1 1 250px;
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+  .dashboard {
+    padding: 10px;
+  }
+
+  .member-list {
+    flex-direction: column;
+  }
+
+  .member-list .member-card {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
