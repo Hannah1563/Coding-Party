@@ -70,16 +70,13 @@ const [members, setMembers] = useState<Member[]>(initialMembers);
 
 {/* Ivan Mucyo's original tasks 9–17 work
     is preserved in git history — see commit 180a3ea.
-    Rendering logic below updated for Task 42/44 (array-driven .map()). */}
+    Author: Joshua Mugisha - Task 44: render members from array state */}
 
       <div className="member-list">
         {members.map((member) => (
           <MemberCard
             key={member.id}
-            name={member.name}
-            role={member.role}
-            tasksCompleted={member.tasksCompleted}
-            isActive={member.isActive}
+            member={member}
           />
         ))}
       </div>
