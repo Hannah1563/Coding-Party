@@ -26,10 +26,20 @@ const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   setNewMemberName(e.target.value);
 };
 
-// Author: Ange Umutoni - Tasks 39–40: typed form submission handler with preventDefault and logging of submitted member name
+// Author: Joshua Mugisha - Tasks 43: Add member to array state on form submit.
 const handleAddMember = (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
-  console.log('Submitted member name:', newMemberName);
+  if (!newMemberName.trim()) return;
+
+  const newMember: Member = {
+    id: crypto.randomUUID(),
+    name: newMemberName.trim(),
+    role: 'Developer',
+    tasksCompleted: 0,
+    isActive: true
+  };
+  setMembers((prev) => [...prev, newMember]);
+  setNewMemberName('');
 };
   
 // Author: Joshua Mugisha; task 42 -- Array State, typed.
@@ -54,50 +64,20 @@ const [members, setMembers] = useState<Member[]>(initialMembers);
       <button type="submit">Add Member</button>
     </form>
 
-{/* Author: Ivan Mucyo - Tasks 9–17 */}
+{/* Ivan Mucyo's original tasks 9–17 work
+    is preserved in git history — see commit 180a3ea.
+    Rendering logic below updated for Task 42/44 (array-driven .map()). */}
 
       <div className="member-list">
-        <MemberCard
-          name="Ivan Mucyo"
-          role="Developer"
-          tasksCompleted={5}
-          isActive={true}
-        />
-
-        <MemberCard
-          name="Hannah Ishimwe TUYISHIMIRE"
-          role="Developer"
-          tasksCompleted={4}
-          isActive={true}
-        />
-
-        <MemberCard
-          name="Thierry Maridadi"
-          role="Developer"
-          tasksCompleted={3}
-          isActive={true}
-        />
-
-        <MemberCard
-          name="Joshua Mugisha"
-          role="Developer"
-          tasksCompleted={3}
-          isActive={true}
-        />
-
-        <MemberCard
-          name="Ange Umutoni"
-          role="Developer"
-          tasksCompleted={2}
-          isActive={true}
-        />
-
-        <MemberCard
-          name="Isaro Julie"
-          role="Developer"
-          tasksCompleted={1}
-          isActive={true}
-        />
+        {members.map((member) => (
+          <MemberCard
+            key={member.id}
+            name={member.name}
+            role={member.role}
+            tasksCompleted={member.tasksCompleted}
+            isActive={member.isActive}
+          />
+        ))}
       </div>
     </div>
   );
@@ -105,4 +85,7 @@ const [members, setMembers] = useState<Member[]>(initialMembers);
 }
 
 
+
 export default TeamDashboard;
+
+      
