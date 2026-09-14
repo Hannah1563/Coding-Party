@@ -14,7 +14,7 @@ const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   setNewMemberName(e.target.value);
 };
 
-// Author: Ange Umutoni - Task 39: typed form submission handler
+// Author: Ange Umutoni - Tasks 39–40: typed form submission handler with preventDefault and logging of submitted member name
 const handleAddMember = (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
   console.log('Submitted member name:', newMemberName);
