@@ -73,10 +73,17 @@ const [members, setMembers] = useState<Member[]>(initialMembers);
     Author: Joshua Mugisha - Task 44: render members from array state */}
 
       <div className="member-list">
+
+{/* Author: Joshua Mugisha; task 45 -- render from array state, pass id + onRemove. */}
         {members.map((member) => (
           <MemberCard
             key={member.id}
-            member={member}
+            id={member.id}
+            name={member.name}
+            role={member.role}
+            tasksCompleted={member.tasksCompleted}
+            isActive={member.isActive}
+            onRemove={handleRemoveMember}
           />
         ))}
       </div>
