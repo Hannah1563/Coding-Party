@@ -9,6 +9,17 @@ function TeamDashboard() {
   // Author: Ange Umutoni - Task 36: typed string state for new member name
   const [newMemberName, setNewMemberName] = useState<string>('');
 
+// Author: Ange Umutoni - Task 38: typed onChange handler for member name input
+const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  setNewMemberName(e.target.value);
+};
+
+// Author: Ange Umutoni - Task 39: typed form submission handler
+const handleAddMember = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  console.log('Submitted member name:', newMemberName);
+};
+  
   return (
     <div className="dashboard">
       <h1>Team Dashboard</h1>
@@ -17,13 +28,16 @@ function TeamDashboard() {
       <button onClick={() => setTeamScore((prev) => prev + 1)}>+1</button>
       <button onClick={() => setTeamScore((prev) => (prev > 0 ? prev - 1 : 0))}>-1</button>
 
-{/* Author: Ange Umutoni - Task 37: controlled input for new member name */} 
+{/* Author: Ange Umutoni - Tasks 37–39: controlled input, typed onChange, and form with typed submit handler */}
+    <form onSubmit={handleAddMember}>
       <input
         type="text"
         placeholder="New member name"
         value={newMemberName}
-        onChange={(e) => setNewMemberName(e.target.value)}
+        onChange={handleNameChange}
       />
+      <button type="submit">Add Member</button>
+    </form>
 
 {/* Author: Ivan Mucyo - Tasks 9–17 */}
 
