@@ -32,6 +32,9 @@ const handleAddMember = (e: React.FormEvent<HTMLFormElement>) => {
   console.log('Submitted member name:', newMemberName);
 };
   
+// Author: Joshua Mugisha; task 42 -- Array State, typed.
+const [members, setMembers] = useState<Member[]>(initialMembers);
+
   return (
     <div className="dashboard">
       <h1>Team Dashboard</h1>
