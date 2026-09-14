@@ -17,7 +17,15 @@ function TeamDashboard() {
       <button onClick={() => setTeamScore((prev) => prev + 1)}>+1</button>
       <button onClick={() => setTeamScore((prev) => (prev > 0 ? prev - 1 : 0))}>-1</button>
 
-      {/* Author: Ivan Mucyo - Tasks 9–17 */}
+{/* Author: Ange Umutoni - Task 37: controlled input for new member name */} 
+      <input
+        type="text"
+        placeholder="New member name"
+        value={newMemberName}
+        onChange={(e) => setNewMemberName(e.target.value)}
+      />
+
+{/* Author: Ivan Mucyo - Tasks 9–17 */}
 
       <div className="member-list">
         <MemberCard
